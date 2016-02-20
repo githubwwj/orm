@@ -25,7 +25,6 @@ public class ConverFragment extends Fragment {
     private  View mView;
     private ListView mListView;
     private List<CategoryConver> mCategoryConverArrayList;
-
     public ConverFragment() {
     }
 
