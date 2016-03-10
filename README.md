@@ -8,6 +8,6 @@ ORM 使用
 
 
 
-![image](http://github.com/githubwwj/orm/master/ProjectScreen/S60310-153526.jpg)
-![image](http://github.com/githubwwj/orm/master/ProjectScreen/S60310-153532.jpg)
+![image](https://github.com/githubwwj/orm/blob/master/ProjectScreen/S60310-153526.jpg)
+![image](https://github.com/githubwwj/orm/blob/master/ProjectScreen/S60310-153532.jpg)
 
