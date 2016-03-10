@@ -2,18 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:clickable="true"
     android:orientation="vertical" >
 
     <RelativeLayout
         android:id="@+id/two_category"
         android:layout_width="match_parent"
-        android:layout_height="40dp" >
+        android:gravity="center"
+        android:layout_height="41dp" >
 
-        <ImageView
-            android:id="@+id/categoryTag"
-            android:layout_width="1.5dp"
-            android:layout_height="10dp"
+        <View
+            android:layout_width="10dp"
+            android:layout_height="1dp"
             android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/categoryTwoTitle"
             android:background="#4A275F" />
 
         <TextView
@@ -21,37 +23,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/margin_small"
-            android:layout_toRightOf="@+id/categoryTag"
-            android:textColor="#4c265f"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="水电费就流口水的减肥"
+            android:textColor="#323232"
             android:textSize="@dimen/text_small" />
 
-        <ImageView
-            android:id="@+id/categoryTwoBottomLine"
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:layout_alignParentBottom="true"
-            android:background="#c8c8c8"
-            android:contentDescription="@string/app_name" />
+        <View
+            android:layout_width="10dp"
+            android:layout_height="1dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/categoryTwoTitle"
+            android:background="#4A275F" />
+
+
     </RelativeLayout>
 
-    <View
-        android:id="@+id/imageDividerHeight"
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:visibility="gone" />
-
-    <!--
-         <GridView
-        android:id="@+id/gridview_category_three"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:cacheColorHint="@color/transparent"
-        android:divider="@null"
-        android:listSelector="@color/transparent"
-        android:numColumns="3"
-        android:scrollbars="none" />
-    -->
 
     <LinearLayout
         android:id="@+id/gridview_category_three"

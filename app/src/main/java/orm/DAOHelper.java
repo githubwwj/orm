@@ -20,7 +20,7 @@ import Models.RightCatSub;
 
 public class DAOHelper extends OrmLiteSqliteOpenHelper {
 	private static final String DATABASE_NAME = "orm";
-	private static final int DATABASE_VERSON = 8;
+	private static final int DATABASE_VERSON = 10;
 	private Map<String, Dao> daos = new HashMap<String, Dao>();
 
 	public DAOHelper(Context context) {

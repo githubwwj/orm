@@ -29,6 +29,16 @@ public class LeftCat implements Serializable {   //左边菜单菜单栏
 	@ForeignCollectionField
 	private Collection<RightCat> rightcat;
 
+	public String getImg_url() {
+		return img_url;
+	}
+
+	public void setImg_url(String img_url) {
+		this.img_url = img_url;
+	}
+
+	@DatabaseField
+	private String img_url;
 
 	private boolean isCheck=false;
 
