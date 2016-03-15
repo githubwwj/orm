@@ -50,7 +50,6 @@ public class CategoryFragment extends Fragment {
     private CategoryAdapter mCategoryAdapter = null;
     private LayoutInflater mLayoutInflater;
     private View mProgresssBar;
-    private LinearLayout mLastCategoryItem;
 
     public CategoryFragment() {
 
@@ -409,35 +408,33 @@ public class CategoryFragment extends Fragment {
         rightCategoryLL.addView(convertView);
         TextView title = ViewHolder.get(convertView, R.id.categoryTwoTitle);
         View two_category = ViewHolder.get(convertView, R.id.two_category);
-        View bottomMargin = ViewHolder.get(convertView, R.id.bottomMargin);
         LinearLayout categoryThreeGridView = ViewHolder.get(convertView, R.id.gridview_category_three);
 
-        if (position + 1 == mRightcat.size() + 1) {
-            bottomMargin.setVisibility(View.VISIBLE);
-            categoryThreeGridView.setVisibility(View.GONE);
-            two_category.setVisibility(View.GONE);
+        final RightCat rightCat = mRightcat.get(position);
+        if (TextUtils.isEmpty(rightCat.getGroup()) && TextUtils.isEmpty(rightCat.getName())) {
+            LinearLayout.LayoutParams imgLP = new LinearLayout.LayoutParams(two_category.getLayoutParams());
+            imgLP.height = dip2px(getActivity(),20);
+            two_category.setLayoutParams(imgLP);
+            two_category.setVisibility(View.INVISIBLE);
         } else {
-            final RightCat rightCat = mRightcat.get(position);
-            if (TextUtils.isEmpty(rightCat.getGroup()) && TextUtils.isEmpty(rightCat.getName())) {
-                two_category.setVisibility(View.GONE);
-            } else {
-                two_category.setVisibility(View.VISIBLE);
+            LinearLayout.LayoutParams imgLP = new LinearLayout.LayoutParams(two_category.getLayoutParams());
+            imgLP.height = dip2px(getActivity(),41);
+            two_category.setLayoutParams(imgLP);
+            two_category.setVisibility(View.VISIBLE);
+        }
+        categoryThreeGridView.setVisibility(View.VISIBLE);
+        if (TextUtils.isEmpty(rightCat.getName())) {
+            title.setText("");
+        } else {
+            title.setText(rightCat.getName());
+        }
+        if (null != rightCat.getSub()) {
+            Iterator<RightCatSub> iterator = rightCat.getSub().iterator();
+            ArrayList<RightCatSub> rightCatSubList = new ArrayList<RightCatSub>();
+            while (iterator.hasNext()) {
+                rightCatSubList.add(iterator.next());
             }
-            categoryThreeGridView.setVisibility(View.VISIBLE);
-            bottomMargin.setVisibility(View.GONE);
-            if (TextUtils.isEmpty(rightCat.getName())) {
-                title.setText("");
-            } else {
-                title.setText(rightCat.getName());
-            }
-            if (null != rightCat.getSub()) {
-                Iterator<RightCatSub> iterator = rightCat.getSub().iterator();
-                ArrayList<RightCatSub> rightCatSubList = new ArrayList<RightCatSub>();
-                while (iterator.hasNext()) {
-                    rightCatSubList.add(iterator.next());
-                }
-                setCategoryThree(categoryThreeGridView, rightCatSubList);
-            }
+            setCategoryThree(categoryThreeGridView, rightCatSubList);
         }
     }
 
